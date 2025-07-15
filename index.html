@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Lora', serif;
@@ -26,6 +26,8 @@
             padding: 18mm;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             color: #1f2937;
+            display: flex;
+            flex-direction: column;
         }
         h1, h2, h3, .sans-serif {
             font-family: 'Inter', sans-serif;
@@ -45,105 +47,102 @@
             color: #555;
             margin-top: 0.5rem;
         }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 1rem;
+        
+        /* Fresco/Timeline Styles */
+        .fresco-container {
+            margin: 2rem 0;
         }
-        th, td {
-            border: 1px solid #d1d5db;
-            padding: 0.6rem;
-            text-align: left;
-            vertical-align: top;
-            font-size: 0.85rem;
-        }
-        th {
-            background-color: #f9fafb;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-        }
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-        .tooltip-trigger {
-            font-weight: 600;
-            color: #2563eb;
-            border-bottom: 1px dotted #2563eb;
-        }
-        .tooltip-content {
-            visibility: hidden;
-            opacity: 0;
-            width: 280px;
-            background-color: #1f2937;
-            color: #fff;
-            text-align: left;
-            border-radius: 6px;
+        .role-display {
+            min-height: 60px;
             padding: 1rem;
-            position: absolute;
-            z-index: 10;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -140px;
-            transition: opacity 0.3s;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            line-height: 1.5;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease-in-out;
+            opacity: 0;
         }
-        .tooltip-content::after {
-            content: "";
-            position: absolute;
-            top: 100%; left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #1f2937 transparent transparent transparent;
-        }
-        .tooltip-container:hover .tooltip-content {
-            visibility: visible;
+        .role-display.visible {
             opacity: 1;
         }
-        .live-demo-tabs {
+        .human-role-display {
+            background-color: #e0f2fe; /* Light blue */
+            border: 1px solid #bae6fd;
+        }
+        .ai-role-display {
+            background-color: #fef3c7; /* Light yellow */
+            border: 1px solid #fde68a;
+            min-height: 120px;
+        }
+        .role-title {
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: #0c4a6e; /* Darker blue for human */
+        }
+        .ai-role-display .role-title {
+            color: #92400e; /* Darker yellow/brown for AI */
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #cbd5e1;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            padding: 0 0.5rem;
+        }
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #94a3b8;
+            border-radius: 50%;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+        }
+        .step-label {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: #475569;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        .timeline-step.active .step-dot {
+            background-color: #2563eb;
+            transform: scale(1.2);
+        }
+        .timeline-step.active .step-label {
+            color: #1e40af;
+        }
+        .dreams-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 0.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.5rem 1.5rem;
         }
-        .tab-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            background-color: #fff;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: background-color 0.2s, color 0.2s;
-        }
-        .tab-btn:hover {
-            background-color: #f3f4f6;
-        }
-        .tab-btn.active {
-            background-color: #2563eb;
-            color: #fff;
-            border-color: #2563eb;
-        }
-        .tab-content {
-            display: none;
-            padding: 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            background-color: #f9fafb;
+        .dreams-item {
             font-size: 0.9rem;
         }
-        .tab-content.active {
-            display: block;
+        .dreams-item strong {
+            color: #92400e;
         }
-        .tab-content p { margin-bottom: 0.5rem; }
-        .tab-content p:last-child { margin-bottom: 0; }
-        .tab-content .human-role { font-style: italic; color: #4b5563; font-size: 0.85rem; margin-top: 0.5rem;}
     </style>
 </head>
 <body>
@@ -157,238 +156,175 @@
 
         <main>
             <p class="mb-3">Following your query, this memo answers your two key questions on AI in Design Thinking. It is itself a prototype: an initial AI draft was critiqued and strategically refined by me to produce this concise deliverable—a live demonstration of the very principles it describes.</p>
-            <ol class="list-decimal list-inside mb-3 space-y-1 text-sm">
-                <li><span class="font-semibold">What more can AI do?</span> AI can act as a creative and analytical partner at every stage. Using the DREAMS lens (hover over the blue keywords in the table), we can unlock a vast range of capabilities.</li>
-                <li><span class="font-semibold">What is the human's role?</span> The human's role is elevated to that of a <span class="font-bold">Strategic Orchestrator</span>—providing intent, asking critical questions, making value-based judgments, and leading the process.</li>
-            </ol>
             
-            <h2 class="text-xl font-bold mt-4 mb-2 sans-serif">The AI-Augmented Design Thinking Process in Action</h2>
+            <div class="fresco-container">
+                <!-- Human Role Display -->
+                <div id="human-role-display" class="role-display human-role-display">
+                    <h3 class="role-title">Human Role (The Strategic Orchestrator)</h3>
+                    <p id="human-role-text" class="mt-1 text-sm"></p>
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th class="w-1/6">Stage</th>
-                        <th class="w-2/6">Human Role (The Strategic Orchestrator)</th>
-                        <th class="w-3/6">AI's Role (DREAMS Analyst & Enabler)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- All 7 stages with tooltips -->
-                    <tr>
-                        <td class="font-semibold sans-serif">1. UNDERSTAND</td>
-                        <td>Define the strategic "why." Frame the problem within the business context.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td class="font-semibold sans-serif">2. EMPATHIZE</td>
-                        <td>Discern unstated needs. Understand the cultural and emotional landscape.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="font-semibold sans-serif">3. DEFINE</td>
-                        <td>Synthesize insights. Craft a compelling and inspiring problem statement.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="font-semibold sans-serif">4. IDEATE</td>
-                        <td>Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="font-semibold sans-serif">5. PROTOTYPE</td>
-                        <td>Design the narrative. Make critical judgment calls on the content.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="font-semibold sans-serif">6. TEST</td>
-                        <td>Listen with empathy. Ask "why" to uncover deep insights.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="font-semibold sans-serif">7. IMPLEMENT</td>
-                        <td>Champion the change. Develop the strategic deployment plan.</td>
-                        <td>
-                            <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
-                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <!-- Timeline -->
+                <div class="timeline" id="timeline">
+                    <!-- Steps will be generated by JS -->
+                </div>
 
-            <div class="mt-6">
-                <h3 class="text-lg font-bold sans-serif mb-3">Demonstration: Applying DREAMS to This Memorandum</h3>
-                <div class="live-demo-tabs">
-                    <button class="tab-btn active" onclick="openTab(event, 'DivergeDemo')">Diverge</button>
-                    <button class="tab-btn" onclick="openTab(event, 'ReviewDemo')">Review</button>
-                    <button class="tab-btn" onclick="openTab(event, 'AnalyzeDemo')">Analyze</button>
-                    <button class="tab-btn" onclick="openTab(event, 'EditDemo')">Edit</button>
-                    <button class="tab-btn" onclick="openTab(event, 'MorphDemo')">Morph</button>
-                    <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">Search</button>
-                </div>
-                <div id="DivergeDemo" class="tab-content active">
-                    <p>"Here are 5 alternative formats for this information: 1. A Socratic dialogue between a 'Skeptic' and an 'Innovator'. 2. A 10-post social media thread. 3. A comic strip illustrating the human-robot collaboration. 4. An interactive 'choose your own adventure' story. 5. A canvas template for planning an AI-assisted project."</p>
-                    <p class="human-role">Human's Role: To select the most impactful format for the audience and context.</p>
-                </div>
-                <div id="ReviewDemo" class="tab-content">
-                    <p>"This document scores 8/10 on clarity but 6/10 on emotional engagement. The term 'synergize' is corporate jargon; consider 'combine' or 'join forces'. I suggest a stronger call to action in the conclusion."</p>
-                    <p class="human-role">Human's Role: To accept, reject, or modify these stylistic suggestions based on strategic intent.</p>
-                </div>
-                <div id="AnalyzeDemo" class="tab-content">
-                    <p>"Analyzing this memo's text, I've identified that the key concepts are 'Strategic Orchestrator', 'DREAMS framework', and 'Human-AI Partnership'. The sentiment is consistently positive. The reading level is appropriate for an executive audience."</p>
-                     <p class="human-role">Human's Role: To use these analytical insights to confirm the document is on track or to guide revisions.</p>
-                </div>
-                <div id="EditDemo" class="tab-content">
-                    <p>"The subject 'Framework for...' is accurate but dry. Here are 5 more engaging alternatives: 1. Our New Innovation Playbook: Humans + AI. 2. The Answer to Your AI Question. 3. A Practical Guide to Leading with AI. 4. Re: AI & DT Conference - A Path Forward. 5. My Proposal for Supercharging Innovation."</p>
-                    <p class="human-role">Human's Role: To choose the title that best fits the company culture and relationship with the CEO.</p>
-                </div>
-                <div id="MorphDemo" class="tab-content">
-                    <p>"I have morphed this memo into a 5-slide presentation outline: Slide 1: The Big Question. Slide 2: The New Model: Human-Led, AI-Powered. Slide 3: The Framework in Action (simplified table). Slide 4: A Live Demo (this section). Slide 5: Our Next Move."</p>
-                    <p class="human-role">Human's Role: To take this structured outline and build the full narrative for the presentation.</p>
-                </div>
-                <div id="SearchDemo" class="tab-content">
-                    <p>"To strengthen your argument, consider these external proof points: 1. Quote: 'The best way to predict the future is to invent it.' - Alan Kay. 2. Article: 'How to Set Up an AI Center of Excellence' - Harvard Business Review. 3. Statistic: 'Companies that strategically scale AI report nearly 3X the return on investment.' - Accenture."</p>
-                    <p class="human-role">Human's Role: To strategically weave these external proof points into the narrative for greater authority.</p>
+                <!-- AI Role Display -->
+                <div id="ai-role-display" class="role-display ai-role-display mt-6">
+                    <h3 class="role-title">AI's Role (DREAMS Analyst & Enabler)</h3>
+                    <ul id="ai-role-list" class="dreams-list"></ul>
                 </div>
             </div>
-
-            <footer class="mt-4 pt-4 border-t border-gray-200">
-                <p class="mt-2 text-sm"><span class="font-bold sans-serif">To Go Deeper:</span> I recommend using an AI as a personalized tutor. Prompt it with: <i class="text-gray-700">"Act as an expert in corporate innovation. Using the DREAMS framework, give me five advanced techniques for using AI in the Ideation phase of Design Thinking."</i></p>
+            
+            <footer class="mt-auto pt-4 border-t border-gray-200">
+                <p class="text-sm"><span class="font-bold sans-serif">To Go Deeper:</span> I recommend using an AI as a personalized tutor. Prompt it with: <i class="text-gray-700">"Act as an expert in corporate innovation. Using the DREAMS framework, give me five advanced techniques for using AI in the Ideation phase of Design Thinking."</i></p>
             </footer>
         </main>
     </div>
 
     <script>
-        const tooltips = {
-            "1. UNDERSTAND": {
-                "Diverge": "Generate a list of 100+ related topics, from cognitive science to change management.",
-                "Review": "Summarize key market reports and academic papers for human assessment.",
-                "Analyze": "Analyze structured data (e.g., sales figures, usage metrics) to find quantitative patterns.",
-                "Edit": "Refine initial research questions based on the summaries.",
-                "Morph": "Reframe the problem for different stakeholders (e.g., 'What is the ROI for the CFO?').",
-                "Search": "Conduct a real-time search for competitor intelligence."
+        const processData = {
+            "UNDERSTAND": {
+                human: 'Define the strategic "why." Frame the problem within the business context.',
+                ai: {
+                    "Diverge": "Generate a list of 100+ related topics, from cognitive science to change management.",
+                    "Review": "Summarize key market reports and academic papers for human assessment.",
+                    "Analyze": "Analyze structured data (e.g., sales figures, usage metrics) to find quantitative patterns.",
+                    "Edit": "Refine initial research questions based on the summaries.",
+                    "Morph": "Reframe the problem for different stakeholders (e.g., 'What is the ROI for the CFO?').",
+                    "Search": "Conduct a real-time search for competitor intelligence."
+                }
             },
-            "2. EMPATHIZE": {
-                "Diverge": "Create multiple data-driven user personas.",
-                "Review": "Present transcripts and user feedback for human interpretation of nuances.",
-                "Analyze": "Analyze interview transcripts for keyword frequency, sentiment, and emotional tone.",
-                "Edit": "Draft a detailed empathy map from the data analysis.",
-                "Morph": "Generate 'a day in the life of' narratives to reveal pain points.",
-                "Search": "Find relevant user interview case studies."
+            "EMPATHIZE": {
+                human: "Discern unstated needs. Understand the cultural and emotional landscape.",
+                ai: {
+                    "Diverge": "Create multiple data-driven user personas.",
+                    "Review": "Present transcripts and user feedback for human interpretation of nuances.",
+                    "Analyze": "Analyze interview transcripts for keyword frequency, sentiment, and emotional tone.",
+                    "Edit": "Draft a detailed empathy map from the data analysis.",
+                    "Morph": "Generate 'a day in the life of' narratives to reveal pain points.",
+                    "Search": "Find relevant user interview case studies."
+                }
             },
-            "3. DEFINE": {
-                 "Diverge": "Generate 50+ 'How Might We...' statements.",
-                 "Review": "Score the statements against impact and feasibility criteria.",
-                 "Analyze": "Analyze the generated 'How Might We' statements for thematic clusters and overlaps.",
-                 "Edit": "Consolidate the top 3 statements into one clear problem statement.",
-                 "Morph": "Translate the final statement into a 'User Story' format for development teams.",
-                 "Search": "Benchmark against how tech leaders have framed similar challenges."
+            "DEFINE": {
+                human: "Synthesize insights. Craft a compelling and inspiring problem statement.",
+                ai: {
+                    "Diverge": "Generate 50+ 'How Might We...' statements.",
+                    "Review": "Score the statements against impact and feasibility criteria.",
+                    "Analyze": "Analyze the generated 'How Might We' statements for thematic clusters and overlaps.",
+                    "Edit": "Consolidate the top 3 statements into one clear problem statement.",
+                    "Morph": "Translate the final statement into a 'User Story' format for development teams.",
+                    "Search": "Benchmark against how tech leaders have framed similar challenges."
+                }
             },
-            "4. IDEATE": {
-                "Diverge": "Generate hundreds of ideas, from conventional to absurd.",
-                "Review": "Cluster the generated ideas into logical affinity groups.",
-                "Analyze": "Analyze generated ideas against a set of predefined constraints (e.g., budget, timeline, tech feasibility).",
-                "Edit": "Flesh out the top 5 ideas with their pros, cons, and risks.",
-                "Morph": "Combine two distinct ideas into a new hybrid concept.",
-                "Search": "Find analogous solutions or metaphors from different industries."
+            "IDEATE": {
+                human: "Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.",
+                ai: {
+                    "Diverge": "Generate hundreds of ideas, from conventional to absurd.",
+                    "Review": "Cluster the generated ideas into logical affinity groups.",
+                    "Analyze": "Analyze generated ideas against a set of predefined constraints (e.g., budget, timeline, tech feasibility).",
+                    "Edit": "Flesh out the top 5 ideas with their pros, cons, and risks.",
+                    "Morph": "Combine two distinct ideas into a new hybrid concept.",
+                    "Search": "Find analogous solutions or metaphors from different industries."
+                }
             },
-            "5. PROTOTYPE": {
-                "Diverge": "Generate multiple layouts for an interface or variations of a product.",
-                "Review": "Check a text for clarity, tone consistency, and grammar.",
-                "Analyze": "Analyze user interaction data from a digital prototype (e.g., heatmaps, click-through rates).",
-                "Edit": "Draft a first pass of copy or code based on bullet points.",
-                "Morph": "Turn the key takeaways of a report into a 2-minute video script.",
-                "Search": "Find best-practice templates for the specific prototype being created."
+            "PROTOTYPE": {
+                human: "Design the narrative. Make critical judgment calls on the content.",
+                ai: {
+                    "Diverge": "Generate multiple layouts for an interface or variations of a product.",
+                    "Review": "Check a text for clarity, tone consistency, and grammar.",
+                    "Analyze": "Analyze user interaction data from a digital prototype (e.g., heatmaps, click-through rates).",
+                    "Edit": "Draft a first pass of copy or code based on bullet points.",
+                    "Morph": "Turn the key takeaways of a report into a 2-minute video script.",
+                    "Search": "Find best-practice templates for the specific prototype being created."
+                }
             },
-            "6. TEST": {
-                "Diverge": "Create a comprehensive feedback survey (quantitative & qualitative questions).",
-                "Review": "Analyze test session transcripts to identify key themes.",
-                "Analyze": "Analyze survey results to calculate net promoter score (NPS) and identify statistical significance in feedback.",
-                "Edit": "Draft a concise summary of the feedback for the project team.",
-                "Morph": "Create a 'before and after' comparison to visualize the changes.",
-                "Search": "Benchmark the feedback against common stakeholder critiques."
+            "TEST": {
+                human: "Listen with empathy. Ask 'why' to uncover deep insights.",
+                ai: {
+                    "Diverge": "Create a comprehensive feedback survey (quantitative & qualitative questions).",
+                    "Review": "Analyze test session transcripts to identify key themes.",
+                    "Analyze": "Analyze survey results to calculate net promoter score (NPS) and identify statistical significance in feedback.",
+                    "Edit": "Draft a concise summary of the feedback for the project team.",
+                    "Morph": "Create a 'before and after' comparison to visualize the changes.",
+                    "Search": "Benchmark the feedback against common stakeholder critiques."
+                }
             },
-            "7. IMPLEMENT": {
-                "Diverge": "Brainstorm a list of potential risks and mitigation strategies.",
-                "Review": "Analyze the project plan for potential bottlenecks.",
-                "Analyze": "Analyze post-launch KPIs to identify correlations between new features and user engagement.",
-                "Edit": "Draft launch communications, FAQs, and training materials.",
-                "Morph": "Adapt the framework into a training module for new hires.",
-                "Search": "Set up a system to monitor internal channels post-launch."
+            "IMPLEMENT": {
+                human: "Champion the change. Develop the strategic deployment plan.",
+                ai: {
+                    "Diverge": "Brainstorm a list of potential risks and mitigation strategies.",
+                    "Review": "Analyze the project plan for potential bottlenecks.",
+                    "Analyze": "Analyze post-launch KPIs to identify correlations between new features and user engagement.",
+                    "Edit": "Draft launch communications, FAQs, and training materials.",
+                    "Morph": "Adapt the framework into a training module for new hires.",
+                    "Search": "Set up a system to monitor internal channels post-launch."
+                }
             }
         };
 
-        document.querySelectorAll('table .tooltip-container').forEach(container => {
-            const trigger = container.querySelector('.tooltip-trigger');
-            const stage = container.closest('tr').querySelector('td:first-child').textContent;
-            const dream = trigger.textContent;
-            const tooltipText = tooltips[stage] ? tooltips[stage][dream] : 'Details not available.';
-            
-            const tooltipContent = document.createElement('div');
-            tooltipContent.className = 'tooltip-content';
-            tooltipContent.textContent = tooltipText;
-            container.appendChild(tooltipContent);
+        const timelineContainer = document.getElementById('timeline');
+        const humanRoleDisplay = document.getElementById('human-role-display');
+        const humanRoleText = document.getElementById('human-role-text');
+        const aiRoleDisplay = document.getElementById('ai-role-display');
+        const aiRoleList = document.getElementById('ai-role-list');
+
+        // Generate timeline steps
+        Object.keys(processData).forEach(stepName => {
+            const stepEl = document.createElement('div');
+            stepEl.className = 'timeline-step';
+            stepEl.dataset.step = stepName;
+            stepEl.innerHTML = `
+                <div class="step-dot"></div>
+                <div class="step-label">${stepName}</div>
+            `;
+            timelineContainer.appendChild(stepEl);
         });
 
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+        function updateDisplay(stepName) {
+            const data = processData[stepName];
+            if (!data) return;
+
+            // Hide current text
+            humanRoleDisplay.classList.remove('visible');
+            aiRoleDisplay.classList.remove('visible');
+
+            setTimeout(() => {
+                // Update Human Role
+                humanRoleText.textContent = data.human;
+
+                // Update AI Role
+                aiRoleList.innerHTML = '';
+                Object.entries(data.ai).forEach(([dream, description]) => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'dreams-item';
+                    listItem.innerHTML = `<strong>${dream}:</strong> ${description}`;
+                    aiRoleList.appendChild(listItem);
+                });
+                
+                // Show new text
+                humanRoleDisplay.classList.add('visible');
+                aiRoleDisplay.classList.add('visible');
+
+            }, 200); // Wait for fade-out before updating content
+
+            // Update active step style
+            document.querySelectorAll('.timeline-step').forEach(step => {
+                step.classList.toggle('active', step.dataset.step === stepName);
+            });
         }
+
+        timelineContainer.addEventListener('click', (e) => {
+            const stepEl = e.target.closest('.timeline-step');
+            if (stepEl) {
+                updateDisplay(stepEl.dataset.step);
+            }
+        });
+
+        // Initial load
+        const firstStep = Object.keys(processData)[0];
+        updateDisplay(firstStep);
+
     </script>
 </body>
 </html>
-

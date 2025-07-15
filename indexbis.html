@@ -107,6 +107,7 @@
         }
         .live-demo-tabs {
             display: flex;
+            flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
@@ -178,7 +179,8 @@
                         <td>Define the strategic "why." Frame the problem within the business context.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -189,7 +191,8 @@
                         <td>Discern unstated needs. Understand the cultural and emotional landscape.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -200,7 +203,8 @@
                         <td>Synthesize insights. Craft a compelling and inspiring problem statement.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -211,7 +215,8 @@
                         <td>Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -222,7 +227,8 @@
                         <td>Design the narrative. Make critical judgment calls on the content.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -233,7 +239,8 @@
                         <td>Listen with empathy. Ask "why" to uncover deep insights.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -244,7 +251,8 @@
                         <td>Champion the change. Develop the strategic deployment plan.</td>
                         <td>
                             <div class="tooltip-container"><span class="tooltip-trigger">Diverge</span></div>, 
-                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>, 
+                            <div class="tooltip-container"><span class="tooltip-trigger">Review</span></div>,
+                            <div class="tooltip-container"><span class="tooltip-trigger">Analyze</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Edit</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Morph</span></div>, 
                             <div class="tooltip-container"><span class="tooltip-trigger">Search</span></div>
@@ -258,6 +266,7 @@
                 <div class="live-demo-tabs">
                     <button class="tab-btn active" onclick="openTab(event, 'DivergeDemo')">Diverge</button>
                     <button class="tab-btn" onclick="openTab(event, 'ReviewDemo')">Review</button>
+                    <button class="tab-btn" onclick="openTab(event, 'AnalyzeDemo')">Analyze</button>
                     <button class="tab-btn" onclick="openTab(event, 'EditDemo')">Edit</button>
                     <button class="tab-btn" onclick="openTab(event, 'MorphDemo')">Morph</button>
                     <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">Search</button>
@@ -267,8 +276,12 @@
                     <p class="human-role">Human's Role: To select the most impactful format for the audience and context.</p>
                 </div>
                 <div id="ReviewDemo" class="tab-content">
-                    <p>"This document scores 8/10 on clarity but 6/10 on emotional engagement. The tone is professional but could be more persuasive. The term 'synergize' is corporate jargon; consider 'combine' or 'join forces'. I suggest a stronger call to action in the conclusion."</p>
+                    <p>"This document scores 8/10 on clarity but 6/10 on emotional engagement. The term 'synergize' is corporate jargon; consider 'combine' or 'join forces'. I suggest a stronger call to action in the conclusion."</p>
                     <p class="human-role">Human's Role: To accept, reject, or modify these stylistic suggestions based on strategic intent.</p>
+                </div>
+                <div id="AnalyzeDemo" class="tab-content">
+                    <p>"Analyzing this memo's text, I've identified that the key concepts are 'Strategic Orchestrator', 'DREAMS framework', and 'Human-AI Partnership'. The sentiment is consistently positive. The reading level is appropriate for an executive audience."</p>
+                     <p class="human-role">Human's Role: To use these analytical insights to confirm the document is on track or to guide revisions.</p>
                 </div>
                 <div id="EditDemo" class="tab-content">
                     <p>"The subject 'Framework for...' is accurate but dry. Here are 5 more engaging alternatives: 1. Our New Innovation Playbook: Humans + AI. 2. The Answer to Your AI Question. 3. A Practical Guide to Leading with AI. 4. Re: AI & DT Conference - A Path Forward. 5. My Proposal for Supercharging Innovation."</p>
@@ -294,14 +307,16 @@
         const tooltips = {
             "1. UNDERSTAND": {
                 "Diverge": "Generate a list of 100+ related topics, from cognitive science to change management.",
-                "Review": "Summarize key market reports and academic papers.",
+                "Review": "Summarize key market reports and academic papers for human assessment.",
+                "Analyze": "Analyze structured data (e.g., sales figures, usage metrics) to find quantitative patterns.",
                 "Edit": "Refine initial research questions based on the summaries.",
                 "Morph": "Reframe the problem for different stakeholders (e.g., 'What is the ROI for the CFO?').",
                 "Search": "Conduct a real-time search for competitor intelligence."
             },
             "2. EMPATHIZE": {
                 "Diverge": "Create multiple data-driven user personas.",
-                "Review": "Analyze sentiment from thousands of customer reviews or support tickets.",
+                "Review": "Present transcripts and user feedback for human interpretation of nuances.",
+                "Analyze": "Analyze interview transcripts for keyword frequency, sentiment, and emotional tone.",
                 "Edit": "Draft a detailed empathy map from the data analysis.",
                 "Morph": "Generate 'a day in the life of' narratives to reveal pain points.",
                 "Search": "Find relevant user interview case studies."
@@ -309,6 +324,7 @@
             "3. DEFINE": {
                  "Diverge": "Generate 50+ 'How Might We...' statements.",
                  "Review": "Score the statements against impact and feasibility criteria.",
+                 "Analyze": "Analyze the generated 'How Might We' statements for thematic clusters and overlaps.",
                  "Edit": "Consolidate the top 3 statements into one clear problem statement.",
                  "Morph": "Translate the final statement into a 'User Story' format for development teams.",
                  "Search": "Benchmark against how tech leaders have framed similar challenges."
@@ -316,6 +332,7 @@
             "4. IDEATE": {
                 "Diverge": "Generate hundreds of ideas, from conventional to absurd.",
                 "Review": "Cluster the generated ideas into logical affinity groups.",
+                "Analyze": "Analyze generated ideas against a set of predefined constraints (e.g., budget, timeline, tech feasibility).",
                 "Edit": "Flesh out the top 5 ideas with their pros, cons, and risks.",
                 "Morph": "Combine two distinct ideas into a new hybrid concept.",
                 "Search": "Find analogous solutions or metaphors from different industries."
@@ -323,6 +340,7 @@
             "5. PROTOTYPE": {
                 "Diverge": "Generate multiple layouts for an interface or variations of a product.",
                 "Review": "Check a text for clarity, tone consistency, and grammar.",
+                "Analyze": "Analyze user interaction data from a digital prototype (e.g., heatmaps, click-through rates).",
                 "Edit": "Draft a first pass of copy or code based on bullet points.",
                 "Morph": "Turn the key takeaways of a report into a 2-minute video script.",
                 "Search": "Find best-practice templates for the specific prototype being created."
@@ -330,6 +348,7 @@
             "6. TEST": {
                 "Diverge": "Create a comprehensive feedback survey (quantitative & qualitative questions).",
                 "Review": "Analyze test session transcripts to identify key themes.",
+                "Analyze": "Analyze survey results to calculate net promoter score (NPS) and identify statistical significance in feedback.",
                 "Edit": "Draft a concise summary of the feedback for the project team.",
                 "Morph": "Create a 'before and after' comparison to visualize the changes.",
                 "Search": "Benchmark the feedback against common stakeholder critiques."
@@ -337,6 +356,7 @@
             "7. IMPLEMENT": {
                 "Diverge": "Brainstorm a list of potential risks and mitigation strategies.",
                 "Review": "Analyze the project plan for potential bottlenecks.",
+                "Analyze": "Analyze post-launch KPIs to identify correlations between new features and user engagement.",
                 "Edit": "Draft launch communications, FAQs, and training materials.",
                 "Morph": "Adapt the framework into a training module for new hires.",
                 "Search": "Set up a system to monitor internal channels post-launch."
@@ -371,3 +391,4 @@
     </script>
 </body>
 </html>
+

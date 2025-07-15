@@ -204,7 +204,7 @@
         .tab-content .human-role { font-style: italic; color: #4b5563; font-size: 0.8rem; margin-top: 0.5rem;}
         
         /* Justify Text Style */
-        main p, main li {
+        main > p, main li {
             text-align: justify;
         }
         
@@ -212,9 +212,15 @@
         #prompt-container {
             position: relative;
             background-color: #f9fafb;
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 0.5rem;
             border: 1px solid #e5e7eb;
+            cursor: pointer;
+        }
+        #prompt-header {
+             font-family: 'Inter', sans-serif;
+             font-size: 0.9rem;
+             color: #374151;
         }
         #prompt-text {
             font-family: 'Courier New', Courier, monospace;
@@ -222,6 +228,16 @@
             color: #374151;
             white-space: pre-wrap;
             word-wrap: break-word;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin: 0;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+        }
+        #prompt-container:hover #prompt-text {
+            max-height: 500px; /* Large enough to fit content */
+            opacity: 1;
+            margin-top: 0.75rem;
         }
         #copy-btn {
             position: absolute;
@@ -326,8 +342,8 @@
             </div>
             
             <footer class="mt-auto pt-4 border-t border-gray-200">
-                <p class="text-sm mb-2"><span class="font-bold sans-serif">To Go Deeper:</span> I recommend using an AI as a personalized tutor. Use the expert prompt below.</p>
                 <div id="prompt-container">
+                    <p id="prompt-header" class="sans-serif"><span class="font-bold">To Go Deeper:</span> Hover to reveal an expert prompt for your AI tutor.</p>
                     <button id="copy-btn" title="Copy to clipboard">Copy</button>
                     <pre id="prompt-text">Act as an expert corporate innovation strategist and Socratic tutor. Your name is 'AIMS' (AI Innovation Mentor & Strategist). My goal is to master the application of AI in our Design Thinking process.
 
@@ -432,7 +448,8 @@ Your first question to me should be about how we currently use technology in our
             evt.currentTarget.className += " active";
         }
 
-        document.getElementById('copy-btn').addEventListener('click', function() {
+        document.getElementById('copy-btn').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the prompt from hiding if it's already visible
             const promptText = document.getElementById('prompt-text').innerText;
             const textArea = document.createElement('textarea');
             textArea.value = promptText;

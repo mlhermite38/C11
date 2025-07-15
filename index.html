@@ -207,6 +207,39 @@
         main p, main li {
             text-align: justify;
         }
+        
+        /* To Go Deeper Section */
+        #prompt-container {
+            position: relative;
+            background-color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        #prompt-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: #374151;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        #copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        #prompt-container:hover #copy-btn {
+            opacity: 1;
+        }
 
     </style>
 </head>
@@ -262,7 +295,7 @@
                         Morph
                     </button>
                     <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.673-.11 3.955-.329a9.008 9.008 0 00-7.91 0c1.282.219 2.599.329 3.955.329zM3 9.75a8.962 8.962 0 0118 0M3 9.75c0-1.355.268-2.65.744-3.857m16.512 0c.476 1.207.744 2.502.744 3.857m-1.212-12.024a1.212 1.212 0 00-1.212-.476m-1.212 12.024c.476-1.212.744-2.502.744-3.857s-.268-2.65-.744-3.857m-16.512 0c-.476 1.207-.744 2.502-.744 3.857s.268 2.65.744 3.857m1.212-12.024c-.476 1.212-.744 2.502-.744 3.857s.268 2.65.744 3.857" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
                         Search
                     </button>
                 </div>
@@ -293,7 +326,21 @@
             </div>
             
             <footer class="mt-auto pt-4 border-t border-gray-200">
-                <p class="text-sm"><span class="font-bold sans-serif">To Go Deeper:</span> I recommend using an AI as a personalized tutor. Prompt it with: <i class="text-gray-700">"Act as an expert in corporate innovation. Using the DREAMS framework, give me five advanced techniques for using AI in the Ideation phase of Design Thinking."</i></p>
+                <p class="text-sm mb-2"><span class="font-bold sans-serif">To Go Deeper:</span> I recommend using an AI as a personalized tutor. Use the expert prompt below.</p>
+                <div id="prompt-container">
+                    <button id="copy-btn" title="Copy to clipboard">Copy</button>
+                    <pre id="prompt-text">Act as an expert corporate innovation strategist and Socratic tutor. Your name is 'AIMS' (AI Innovation Mentor & Strategist). My goal is to master the application of AI in our Design Thinking process.
+
+For our conversation, adopt the following methodology:
+1.  **Ask, Don't Tell:** Guide me with probing questions rather than giving direct answers.
+2.  **Use Analogies:** Relate complex AI concepts to familiar business scenarios.
+3.  **Challenge My Assumptions:** If I make a statement, gently challenge it and ask for my reasoning or for evidence.
+4.  **Reference Frameworks:** Connect our discussion back to established models (like DREAMS, Blue Ocean Strategy, Jobs-to-be-Done).
+
+Let's begin. I want to focus on the 'Ideation' phase of Design Thinking. My current challenge is that our brainstorming sessions often yield predictable, incremental ideas. 
+
+Your first question to me should be about how we currently use technology in our ideation sessions and what the primary obstacles are to more breakthrough thinking.</pre>
+                </div>
             </footer>
         </main>
     </div>
@@ -384,6 +431,21 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const promptText = document.getElementById('prompt-text').innerText;
+            const textArea = document.createElement('textarea');
+            textArea.value = promptText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            this.innerText = 'Copied!';
+            setTimeout(() => {
+                this.innerText = 'Copy';
+            }, 2000);
+        });
 
         // Initial load
         const firstStep = Object.keys(processData)[0];

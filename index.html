@@ -446,6 +446,11 @@ Your first question to me should be about how we currently use technology in our
             }
         });
 
+        function openTab(evt, tabName) {
+            // This function is for the live demo tabs, which are not in this version.
+            // Kept for potential future use, but can be removed.
+        }
+
         document.getElementById('copy-btn').addEventListener('click', function(e) {
             e.stopPropagation();
             const promptText = document.getElementById('prompt-text').innerText;

@@ -23,7 +23,7 @@
             background: white;
             width: 210mm;
             min-height: 297mm;
-            padding: 18mm;
+            padding: 15mm;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             color: #1f2937;
             display: flex;
@@ -34,29 +34,37 @@
         }
         .memo-header {
             border-bottom: 2px solid #333;
-            padding-bottom: 1rem;
+            padding-bottom: 0.75rem;
             margin-bottom: 1rem;
         }
         .memo-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             margin: 0;
         }
         .memo-meta {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #555;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
+        .executive-summary {
+            background-color: #f3f4f6;
+            border-left: 4px solid #2563eb;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
+        }
+        .executive-summary p { margin-bottom: 0.25rem; font-size: 0.85rem; }
         
         /* Fresco/Timeline Styles */
         .fresco-container {
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
         .role-display {
-            min-height: 50px;
+            min-height: 45px;
             padding: 0.75rem 1rem;
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             transition: all 0.4s ease-in-out;
             opacity: 0;
         }
@@ -64,151 +72,76 @@
             opacity: 1;
         }
         .human-role-display {
-            background-color: #e0f2fe; /* Light blue */
-            border: 1px solid #bae6fd;
+            background-color: #e0f2fe; border: 1px solid #bae6fd;
         }
         .ai-role-display {
-            background-color: #fef3c7; /* Light yellow */
-            border: 1px solid #fde68a;
-            min-height: 110px;
+            background-color: #fef3c7; border: 1px solid #fde68a;
+            min-height: 100px;
         }
         .role-title {
             font-weight: 700;
             font-family: 'Inter', sans-serif;
-            color: #0c4a6e; /* Darker blue for human */
+            color: #0c4a6e;
         }
         .ai-role-display .role-title {
-            color: #92400e; /* Darker yellow/brown for AI */
+            color: #92400e;
         }
         .timeline {
             display: flex;
             justify-content: space-between;
             position: relative;
-            margin: 1.5rem 0;
+            margin: 1.25rem 0;
         }
         .timeline::before {
-            content: '';
-            position: absolute;
-            top: 20px; /* Aligned with the center of the icon */
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #cbd5e1;
-            transform: translateY(-50%);
-            z-index: 1;
+            content: ''; position: absolute; top: 18px; left: 0; right: 0;
+            height: 2px; background-color: #cbd5e1; transform: translateY(-50%); z-index: 1;
         }
         .timeline-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
-            padding: 0 0.25rem;
-            width: 14%;
+            display: flex; flex-direction: column; align-items: center;
+            position: relative; z-index: 2; cursor: pointer; padding: 0 0.25rem; width: 14%;
         }
         .step-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #e2e8f0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid white;
-            transition: all 0.3s ease;
+            width: 36px; height: 36px; background-color: #e2e8f0; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; transition: all 0.3s ease;
         }
         .step-icon svg {
-            width: 20px;
-            height: 20px;
-            color: #475569;
-            transition: color 0.3s ease;
+            width: 18px; height: 18px; color: #475569; transition: color 0.3s ease;
         }
         .step-label {
-            margin-top: 0.5rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            color: #475569;
-            text-align: center;
+            margin-top: 0.5rem; font-size: 0.65rem; font-weight: 600;
+            font-family: 'Inter', sans-serif; color: #475569; text-align: center;
             transition: color 0.3s ease;
         }
-        .timeline-step.active .step-icon {
-            background-color: #2563eb;
-        }
-        .timeline-step.active .step-icon svg {
-            color: white;
-        }
-        .timeline-step.active .step-label {
-            color: #1e40af;
-        }
+        .timeline-step.active .step-icon { background-color: #2563eb; }
+        .timeline-step.active .step-icon svg { color: white; }
+        .timeline-step.active .step-label { color: #1e40af; }
         .dreams-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 0.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem 1.2rem;
+            list-style-type: none; padding: 0; margin-top: 0.5rem;
+            display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;
         }
-        .dreams-item {
-            font-size: 0.85rem;
-        }
-        .dreams-item strong {
-            color: #92400e;
-        }
+        .dreams-item { font-size: 0.8rem; }
+        .dreams-item strong { color: #92400e; }
 
-        /* Live Demo Styles */
-        .live-demo-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .tab-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            background-color: #fff;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: background-color 0.2s, color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .tab-btn svg {
-            width: 16px;
-            height: 16px;
-        }
-        .tab-btn:hover {
-            background-color: #f3f4f6;
-        }
-        .tab-btn.active {
-            background-color: #2563eb;
-            color: #fff;
-            border-color: #2563eb;
-        }
-        .tab-content {
-            display: none;
-            padding: 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            background-color: #f9fafb;
-            font-size: 0.85rem;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .tab-content .human-role { font-style: italic; color: #4b5563; font-size: 0.8rem; margin-top: 0.5rem;}
+        /* KPI Section */
+        .kpi-section { margin-top: 1rem; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
+        .kpi-card { background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 0.75rem; border-radius: 8px; text-align: center; }
+        .kpi-value { font-size: 1.2rem; font-weight: 700; color: #1e40af; font-family: 'Inter', sans-serif; }
+        .kpi-label { font-size: 0.75rem; color: #4b5563; }
         
         /* Justify Text Style */
-        main > p, main li {
-            text-align: justify;
-        }
+        main p, main li { text-align: justify; }
         
-        /* To Go Deeper Section */
+        /* Footer */
+        .footer-container {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
         #prompt-container {
             position: relative;
             background-color: #f9fafb;
@@ -216,15 +149,16 @@
             border-radius: 0.5rem;
             border: 1px solid #e5e7eb;
             cursor: pointer;
+            flex-grow: 1;
         }
         #prompt-header {
              font-family: 'Inter', sans-serif;
-             font-size: 0.9rem;
+             font-size: 0.85rem;
              color: #374151;
         }
         #prompt-text {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #374151;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -235,7 +169,7 @@
             transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out;
         }
         #prompt-container:hover #prompt-text {
-            max-height: 500px; /* Large enough to fit content */
+            max-height: 500px;
             opacity: 1;
             margin-top: 0.75rem;
         }
@@ -256,6 +190,20 @@
         #prompt-container:hover #copy-btn {
             opacity: 1;
         }
+        .qr-code-container {
+            text-align: center;
+            margin-left: 1rem;
+        }
+        .qr-code-container img {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #e5e7eb;
+        }
+        .qr-code-container p {
+            font-size: 0.6rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
 
     </style>
 </head>
@@ -269,11 +217,10 @@
         </header>
 
         <main>
-            <p class="mb-3">Following your query, this memo answers your two key questions on AI in Design Thinking. It is itself a prototype: an initial AI draft was critiqued and strategically refined by me to produce this concise deliverable—a live demonstration of the very principles it describes.</p>
-            <ol class="list-decimal list-inside mb-4 space-y-1 text-sm">
-                <li><span class="font-semibold">What more can AI do?</span> AI can act as a creative and analytical partner at every stage. The interactive timeline below demonstrates its potential through the DREAMS lens.</li>
-                <li><span class="font-semibold">What is the human's role?</span> The human's role is elevated to that of a <span class="font-bold">Strategic Orchestrator</span>—providing intent, asking critical questions, making value-based judgments, and leading the process.</li>
-            </ol>
+            <div class="executive-summary sans-serif">
+                <h3 class="font-bold text-base">Executive Summary</h3>
+                <p>This memo answers your two questions: (1) What more can AI do in Design Thinking? and (2) What is the role of humans? In short, AI can vastly expand our creative and analytical capabilities at every stage, as demonstrated by the DREAMS framework below. The human's role evolves to that of a **Strategic Orchestrator**, guiding the process with intent and critical judgment. Adopting this partnership promises to accelerate our innovation cycle, increase the diversity of our ideas, and ultimately enhance our competitive advantage.</p>
+            </div>
             
             <div class="fresco-container">
                 <div id="human-role-display" class="role-display human-role-display">
@@ -287,61 +234,29 @@
                 </div>
             </div>
 
-            <div class="mt-4">
-                <h3 class="text-lg font-bold sans-serif mb-3">Demonstration: Applying DREAMS to This Memorandum</h3>
-                <div class="live-demo-tabs">
-                    <button class="tab-btn active" onclick="openTab(event, 'DivergeDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        Diverge
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'ReviewDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.432 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        Review
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'EditDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>
-                        Edit
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'AnalyzeDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-                        Analyze
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'MorphDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.673-.11 3.955-.329a9.008 9.008 0 00-7.91 0c1.282.219 2.599.329 3.955.329zM12 3a9.004 9.004 0 00-8.716 6.747M12 3a9.004 9.004 0 018.716 6.747M12 3c-1.356 0-2.673.11-3.955.329a9.008 9.008 0 007.91 0A9.004 9.004 0 0012 3z" /></svg>
-                        Morph
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                        Search
-                    </button>
-                </div>
-                <div id="DivergeDemo" class="tab-content active">
-                    <p>"Here are 5 alternative formats for this information: 1. A Socratic dialogue between a 'Skeptic' and an 'Innovator'. 2. A 10-post social media thread. 3. A comic strip illustrating the human-robot collaboration. 4. An interactive 'choose your own adventure' story. 5. A canvas template for planning an AI-assisted project."</p>
-                    <p class="human-role">Human's Role: To select the most impactful format for the audience and context.</p>
-                </div>
-                <div id="ReviewDemo" class="tab-content">
-                    <p>"This document scores 8/10 on clarity but 6/10 on emotional engagement. The term 'synergize' is corporate jargon; consider 'combine' or 'join forces'. I suggest a stronger call to action in the conclusion."</p>
-                    <p class="human-role">Human's Role: To accept, reject, or modify these stylistic suggestions based on strategic intent.</p>
-                </div>
-                <div id="EditDemo" class="tab-content">
-                    <p>"The subject 'Framework for...' is accurate but dry. Here are 5 more engaging alternatives: 1. Our New Innovation Playbook: Humans + AI. 2. The Answer to Your AI Question. 3. A Practical Guide to Leading with AI. 4. Re: AI & DT Conference - A Path Forward. 5. My Proposal for Supercharging Innovation."</p>
-                    <p class="human-role">Human's Role: To choose the title that best fits the company culture and relationship with the CEO.</p>
-                </div>
-                <div id="AnalyzeDemo" class="tab-content">
-                    <p>"Analyzing this memo's text, I've identified that the key concepts are 'Strategic Orchestrator', 'DREAMS framework', and 'Human-AI Partnership'. The sentiment is consistently positive. The reading level is appropriate for an executive audience."</p>
-                     <p class="human-role">Human's Role: To use these analytical insights to confirm the document is on track or to guide revisions.</p>
-                </div>
-                <div id="MorphDemo" class="tab-content">
-                    <p>"I have morphed this memo into a 5-slide presentation outline: Slide 1: The Big Question. Slide 2: The New Model: Human-Led, AI-Powered. Slide 3: The Framework in Action (interactive fresco). Slide 4: A Live Demo (this section). Slide 5: Our Next Move."</p>
-                    <p class="human-role">Human's Role: To take this structured outline and build the full narrative for the presentation.</p>
-                </div>
-                <div id="SearchDemo" class="tab-content">
-                    <p>"To strengthen your argument, consider these external proof points: 1. Quote: 'The best way to predict the future is to invent it.' - Alan Kay. 2. Article: 'How to Set Up an AI Center of Excellence' - Harvard Business Review. 3. Statistic: 'Companies that strategically scale AI report nearly 3X the return on investment.' - Accenture."</p>
-                    <p class="human-role">Human's Role: To strategically weave these external proof points into the narrative for greater authority.</p>
+            <div class="kpi-section">
+                <h3 class="text-lg font-bold sans-serif mb-2">Measuring the Impact: Key KPIs</h3>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-value">&times;2</div>
+                        <div class="kpi-label">Idea Diversity</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">-30%</div>
+                        <div class="kpi-label">Time-to-Prototype</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">+15%</div>
+                        <div class="kpi-label">Prototype Success Rate</div>
+                    </div>
+                     <div class="kpi-card">
+                        <div class="kpi-value">+25%</div>
+                        <div class="kpi-label">Market Insight Coverage</div>
+                    </div>
                 </div>
             </div>
             
-            <footer class="mt-auto pt-4 border-t border-gray-200">
+            <footer class="footer-container">
                 <div id="prompt-container">
                     <p id="prompt-header" class="sans-serif"><span class="font-bold">To Go Deeper:</span> Hover to reveal an expert prompt for your AI tutor.</p>
                     <button id="copy-btn" title="Copy to clipboard">Copy</button>
@@ -356,6 +271,10 @@ For our conversation, adopt the following methodology:
 Let's begin. I want to focus on the 'Ideation' phase of Design Thinking. My current challenge is that our brainstorming sessions often yield predictable, incremental ideas. 
 
 Your first question to me should be about how we currently use technology in our ideation sessions and what the primary obstacles are to more breakthrough thinking.</pre>
+                </div>
+                <div class="qr-code-container">
+                    <img src="https://placehold.co/150x150/ffffff/000000?text=QR" alt="QR Code to Interactive Version">
+                    <p>Scan for Interactive Version</p>
                 </div>
             </footer>
         </main>
@@ -373,13 +292,13 @@ Your first question to me should be about how we currently use technology in our
         };
 
         const processData = {
-            "UNDERSTAND": { human: 'Define the strategic "why." Frame the problem within the business context.', ai: { "Diverge": "Generate a list of 100+ related topics.", "Review": "Summarize key market reports.", "Edit": "Refine initial research questions.", "Analyze": "Analyze structured data to find patterns.", "Morph": "Reframe the problem for different stakeholders.", "Search": "Conduct real-time competitor intelligence." }},
-            "EMPATHIZE": { human: "Discern unstated needs. Understand the cultural and emotional landscape.", ai: { "Diverge": "Create data-driven user personas.", "Review": "Present transcripts for human interpretation.", "Edit": "Draft a detailed empathy map.", "Analyze": "Analyze interview transcripts for sentiment.", "Morph": "Generate 'a day in the life of' narratives.", "Search": "Find relevant user interview case studies." }},
-            "DEFINE": { human: "Synthesize insights. Craft a compelling and inspiring problem statement.", ai: { "Diverge": "Generate 50+ 'How Might We...' statements.", "Review": "Score statements against impact/feasibility.", "Edit": "Consolidate top statements into one.", "Analyze": "Analyze statements for thematic clusters.", "Morph": "Translate statement into a 'User Story'.", "Search": "Benchmark against tech leaders' framing." }},
-            "IDEATE": { human: "Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.", ai: { "Diverge": "Generate hundreds of ideas.", "Review": "Cluster ideas into affinity groups.", "Edit": "Flesh out top 5 ideas with pros/cons.", "Analyze": "Analyze ideas against predefined constraints.", "Morph": "Combine two distinct ideas into a hybrid.", "Search": "Find analogous solutions in other industries." }},
-            "PROTOTYPE": { human: "Design the narrative. Make critical judgment calls on the content.", ai: { "Diverge": "Generate multiple UI layouts.", "Review": "Check text for clarity and tone.", "Edit": "Draft first-pass copy from bullet points.", "Analyze": "Analyze user interaction data from a prototype.", "Morph": "Turn a report into a 2-minute video script.", "Search": "Find best-practice templates." }},
-            "TEST": { human: "Listen with empathy. Ask 'why' to uncover deep insights.", ai: { "Diverge": "Create a comprehensive feedback survey.", "Review": "Analyze test session transcripts for themes.", "Edit": "Draft a concise summary of feedback.", "Analyze": "Calculate NPS from survey results.", "Morph": "Create a 'before and after' comparison.", "Search": "Benchmark feedback against common critiques." }},
-            "IMPLEMENT": { human: "Champion the change. Develop the strategic deployment plan.", ai: { "Diverge": "Brainstorm potential risks and mitigations.", "Review": "Analyze the project plan for bottlenecks.", "Edit": "Draft launch communications and FAQs.", "Analyze": "Analyze post-launch KPIs for correlations.", "Morph": "Adapt the framework into a training module.", "Search": "Set up a system to monitor channels." }}
+            "UNDERSTAND": { human: 'Define the strategic "why." Frame the problem within the business context.', ai: { "Diverge": "Generate a list of 100+ related topics.", "Review": "Summarize key market reports.", "Edit": "Refine initial research questions.", "Analyze": "Analyze sales data vs. marketing spend to find correlations.", "Morph": "Reframe the problem for different stakeholders (e.g., CFO).", "Search": "Conduct real-time competitor intelligence." }},
+            "EMPATHIZE": { human: "Discern unstated needs. Understand the cultural and emotional landscape.", ai: { "Diverge": "Create data-driven user personas.", "Review": "Present transcripts for human interpretation.", "Edit": "Draft a detailed empathy map.", "Analyze": "Analyze user session recordings for drop-off points.", "Morph": "Generate 'a day in the life of' narratives.", "Search": "Find relevant user interview case studies." }},
+            "DEFINE": { human: "Synthesize insights. Craft a compelling and inspiring problem statement.", ai: { "Diverge": "Generate 50+ 'How Might We...' statements.", "Review": "Score statements against impact/feasibility.", "Edit": "Consolidate top statements into one.", "Analyze": "Analyze statements for thematic clusters.", "Morph": "Translate a problem statement into a technical spec.", "Search": "Benchmark against tech leaders' framing." }},
+            "IDEATE": { human: "Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.", ai: { "Diverge": "Generate hundreds of ideas.", "Review": "Cluster ideas into affinity groups.", "Edit": "Flesh out top 5 ideas with pros/cons.", "Analyze": "Analyze ideas against predefined constraints.", "Morph": "Morph a product idea into a subscription service model.", "Search": "Find analogous solutions in other industries." }},
+            "PROTOTYPE": { human: "Design the narrative. Make critical judgment calls on the content.", ai: { "Diverge": "Generate multiple UI layouts.", "Review": "Check text for clarity and tone.", "Edit": "Draft first-pass copy from bullet points.", "Analyze": "Analyze user interaction data from a prototype.", "Morph": "Morph a UI mockup into functional HTML/CSS code.", "Search": "Find best-practice templates." }},
+            "TEST": { human: "Listen with empathy. Ask 'why' to uncover deep insights.", ai: { "Diverge": "Create a comprehensive feedback survey.", "Review": "Analyze test session transcripts for themes.", "Edit": "Draft a concise summary of feedback.", "Analyze": "Calculate NPS from survey results.", "Morph": "Morph qualitative feedback into quantitative charts.", "Search": "Benchmark feedback against common critiques." }},
+            "IMPLEMENT": { human: "Champion the change. Develop the strategic deployment plan.", ai: { "Diverge": "Brainstorm potential risks and mitigations.", "Review": "Analyze the project plan for bottlenecks.", "Edit": "Draft launch communications and FAQs.", "Analyze": "Analyze post-launch KPIs for correlations.", "Morph": "Morph the framework into an interactive training module.", "Search": "Set up a system to monitor channels." }}
         };
 
         const timelineContainer = document.getElementById('timeline');
@@ -434,22 +353,8 @@ Your first question to me should be about how we currently use technology in our
             }
         });
 
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
         document.getElementById('copy-btn').addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent the prompt from hiding if it's already visible
+            e.stopPropagation();
             const promptText = document.getElementById('prompt-text').innerText;
             const textArea = document.createElement('textarea');
             textArea.value = promptText;
@@ -470,3 +375,4 @@ Your first question to me should be about how we currently use technology in our
     </script>
 </body>
 </html>
+

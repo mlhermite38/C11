@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémo Interactif : L'IA et la Matrice DREAMS chez Petzl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for active tab */
+        .tab-active {
+            background-color: #FBBF24; /* Petzl yellow/orange accent */
+            color: #1F2937;
+            font-weight: 600;
+        }
+        .table-header-custom {
+            background-color: #374151; /* Dark gray */
+            color: #F9FAFB; /* Light text */
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-10 border-b border-gray-600 pb-6">
+            <h1 class="text-4xl font-bold text-white mb-2">L'IA comme Partenaire Stratégique</h1>
+            <p class="text-xl text-gray-400">Utiliser la matrice <span class="font-bold text-amber-400">DREAMS</span> pour nos métiers chez Petzl</p>
+        </header>
+
+        <!-- DREAMS Explanation Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-white mb-6 text-center">La Matrice DREAMS : Un Langage Commun pour Collaborer avec l'IA</h2>
+            <p class="text-center text-gray-300 max-w-3xl mx-auto mb-8">
+                Loin d'être une simple "boîte noire", l'IA offre un ensemble de fonctions précises. Le modèle DREAMS nous donne un cadre pour piloter ces fonctions. Le principe est simple : vous restez le stratège, l'expert qui pose les bonnes questions, et l'IA devient un assistant surpuissant qui exécute.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- DIVERGE -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Diverge (Explorer)</h3>
+                    <p class="text-gray-300">Générer un large éventail d'idées, d'options, ou de variations de contenu. Idéal pour le brainstorming ou pour explorer toutes les facettes d'un problème.</p>
+                </div>
+                <!-- REVIEW -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Review (Vérifier)</h3>
+                    <p class="text-gray-300">Demander à l'IA de vérifier un contenu en se basant sur des règles, des normes ou une base de connaissances. Parfait pour la relecture ou la détection d'écarts.</p>
+                </div>
+                <!-- EDIT -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Edit (Modifier)</h3>
+                    <p class="text-gray-300">Raffiner, reformuler ou corriger un contenu existant. Pour améliorer la clarté, le ton, le style ou simplement corriger des erreurs.</p>
+                </div>
+                <!-- ANALYZE -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Analyze (Analyser)</h3>
+                    <p class="text-gray-300">Extraire des informations clés, identifier des tendances ou résumer de grands volumes de données. Transformer l'information brute en connaissance.</p>
+                </div>
+                <!-- MORPH -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Morph (Transformer)</h3>
+                    <p class="text-gray-300">Convertir un contenu d'un format à un autre. Par exemple, transformer un rapport en présentation, ou des notes en un e-mail formel.</p>
+                </div>
+                <!-- SEARCH -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">Search (Rechercher)</h3>
+                    <p class="text-gray-300">Trouver des informations spécifiques dans de vastes ensembles de données, qu'ils soient internes (nos serveurs) ou externes (le web).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Use Cases Section -->
+        <section>
+            <h2 class="text-2xl font-semibold text-white mb-6 text-center">Nos cas d'usage concrets</h2>
+            
+            <!-- Tab Buttons -->
+            <div class="mb-4 flex flex-wrap justify-center border-b border-gray-600">
+                <button class="tab-button py-2 px-4 block hover:text-amber-400 focus:outline-none tab-active" onclick="openTab(event, 'certification')">1. Certification Produit</button>
+                <button class="tab-button py-2 px-4 block hover:text-amber-400 focus:outline-none" onclick="openTab(event, 'normalisation')">2. Normalisation</button>
+                <button class="tab-button py-2 px-4 block hover:text-amber-400 focus:outline-none" onclick="openTab(event, 'risques')">3. Analyse des Risques</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="p-4 bg-gray-900/50 rounded-lg">
+                <!-- Certification Tab -->
+                <div id="certification" class="tab-content">
+                    <h3 class="text-xl font-bold text-white mb-4">Exemple : Création d'une documentation technique pour un casque</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm text-left text-gray-300 rounded-lg overflow-hidden">
+                            <thead class="table-header-custom text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 w-1/6">DREAMS</th>
+                                    <th scope="col" class="px-6 py-3 w-2/6">Rôle de l'IA (L'Assistant)</th>
+                                    <th scope="col" class="px-6 py-3 w-3/6">Votre Rôle (Le Stratège & Expert)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Search</td>
+                                    <td class="px-6 py-4">Trouve tous les rapports de tests, fiches matériaux et exigences de la norme EN 12492 liés au projet.</td>
+                                    <td class="px-6 py-4">Vous définissez le périmètre exact : "Cherche les documents pour le casque X, certification CE selon le règlement (UE) 2016/425 et la norme EN 12492:2012."</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Analyze</td>
+                                    <td class="px-6 py-4">Extrait les valeurs des tests et les compare aux seuils de la norme. Génère une liste des documents manquants.</td>
+                                    <td class="px-6 py-4">Vous interprétez les résultats : "L'IA signale un test limite. Je dois investiguer ce point avec le laboratoire." Vous validez la pertinence des documents trouvés.</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Diverge</td>
+                                    <td class="px-6 py-4">Propose 3 structures différentes pour le dossier technique, basées sur des modèles passés ou des bonnes pratiques.</td>
+                                    <td class="px-6 py-4">Vous choisissez la structure la plus adaptée pour l'organisme notifié que vous ciblez.</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Edit</td>
+                                    <td class="px-6 py-4">À partir de vos notes (bullet points), rédige des paragraphes dans un langage technique formel et cohérent.</td>
+                                    <td class="px-6 py-4">Vous fournissez l'expertise brute et les conclusions. Vous relisez et affinez la version de l'IA pour y ajouter les nuances stratégiques.</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Review</td>
+                                    <td class="px-6 py-4">Vérifie que chaque exigence de la norme listée dans la phase 'Analyze' est bien couverte par un document ou un paragraphe dans le dossier final.</td>
+                                    <td class="px-6 py-4">Vous validez les corrections suggérées par l'IA et signez le document final, engageant votre responsabilité d'expert.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-amber-400">Morph</td>
+                                    <td class="px-6 py-4">Transforme le dossier technique complet en une présentation de synthèse de 10 slides pour la revue de projet interne.</td>
+                                    <td class="px-6 py-4">Vous utilisez cette présentation pour communiquer efficacement, en vous concentrant sur les points clés et les décisions à prendre.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Normalisation Tab -->
+                <div id="normalisation" class="tab-content" style="display:none">
+                    <h3 class="text-xl font-bold text-white mb-4">Exemple : Compte-rendu et communication suite à un comité de normalisation</h3>
+                     <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm text-left text-gray-300 rounded-lg overflow-hidden">
+                            <thead class="table-header-custom text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 w-1/6">DREAMS</th>
+                                    <th scope="col" class="px-6 py-3 w-2/6">Rôle de l'IA (L'Assistant)</th>
+                                    <th scope="col" class="px-6 py-3 w-3/6">Votre Rôle (Le Stratège & Expert)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Analyze</td>
+                                    <td class="px-6 py-4">À partir de la transcription de la réunion, identifie les intervenants, les sujets clés, les décisions et les points d'action.</td>
+                                    <td class="px-6 py-4">Vous fournissez la transcription et le contexte : "Analyse cette réunion du TC 136. Concentre-toi sur les débats concernant la résistance des connecteurs."</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Search</td>
+                                    <td class="px-6 py-4">Recherche dans la transcription toutes les mentions d'un concurrent ou d'une proposition technique spécifique.</td>
+                                    <td class="px-6 py-4">Vous posez les questions stratégiques : "Retrouve le moment exact où l'expert italien a argumenté contre notre proposition."</td>
+                                </tr>
+                                 <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Edit</td>
+                                    <td class="px-6 py-4">Rédige une première version du compte-rendu formel en se basant sur les points extraits.</td>
+                                    <td class="px-6 py-4">Vous apportez l'analyse de fond : les non-dits, les alliances, les enjeux politiques. Vous transformez le compte-rendu factuel en un document d'intelligence stratégique.</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Diverge</td>
+                                    <td class="px-6 py-4">Génère 3 versions de communication : un e-mail pour le BE, une note pour la Qualité, un résumé pour le Management.</td>
+                                    <td class="px-6 py-4">Vous choisissez et adaptez la communication pour chaque cible, en vous assurant que le message est pertinent et actionnable pour eux.</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Review</td>
+                                    <td class="px-6 py-4">Vérifie que les synthèses pour le BE et la Qualité contiennent bien tous les points d'action qui les concernent.</td>
+                                    <td class="px-6 py-4">Vous validez la diffusion de l'information, en vous assurant que rien de critique ou confidentiel n'a été mal interprété.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-amber-400">Morph</td>
+                                    <td class="px-6 py-4">Transforme les points clés du compte-rendu en une série de slides pour la prochaine réunion d'équipe.</td>
+                                    <td class="px-6 py-4">Vous utilisez ces slides pour présenter les enjeux et lancer les plans d'action internes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Risques Tab -->
+                <div id="risques" class="tab-content" style="display:none">
+                    <h3 class="text-xl font-bold text-white mb-4">Exemple : Benchmark de la concurrence pour une analyse de risques d'usage</h3>
+                     <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm text-left text-gray-300 rounded-lg overflow-hidden">
+                            <thead class="table-header-custom text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 w-1/6">DREAMS</th>
+                                    <th scope="col" class="px-6 py-3 w-2/6">Rôle de l'IA (L'Assistant)</th>
+                                    <th scope="col" class="px-6 py-3 w-3/6">Votre Rôle (Le Stratège & Expert)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Search</td>
+                                    <td class="px-6 py-4">Scanne le web (forums, vidéos, notices, rappels produits) pour trouver des informations sur les mauvais usages des assureurs-descendeurs concurrents.</td>
+                                    <td class="px-6 py-4">Vous définissez les cibles : "Focalise-toi sur les produits X, Y, Z. Cherche les mots-clés 'accident', 'mauvais usage', 'coincé', 'problème'."</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Analyze</td>
+                                    <td class="px-6 py-4">Catégorise les informations trouvées par type de risque (ex: mauvaise installation de la corde, perte de contrôle à la descente) et par produit.</td>
+                                    <td class="px-6 py-4">Vous utilisez votre expertise pour évaluer la crédibilité des sources et prioriser les risques : "Ce risque de retournement est mentionné sur 3 forums différents, il est critique."</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Diverge</td>
+                                    <td class="px-6 py-4">À partir des risques analysés, imagine des scénarios d'usage extrêmes ou inattendus pour notre futur produit.</td>
+                                    <td class="px-6 py-4">Vous utilisez ces scénarios pour challenger la conception du produit : "Comment notre design peut-il empêcher ce scénario de se produire ?"</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Review</td>
+                                    <td class="px-6 py-4">Compare notre projet d'AMDEC avec la liste des risques identifiés chez les concurrents et signale les oublis potentiels.</td>
+                                    <td class="px-6 py-4">Vous décidez si les risques manquants sont pertinents pour notre produit et si des actions de mitigation sont nécessaires.</td>
+                                </tr>
+                                 <tr class="border-b border-gray-700">
+                                    <td class="px-6 py-4 font-bold text-amber-400">Edit</td>
+                                    <td class="px-6 py-4">Aide à reformuler les descriptions des risques et des mesures de mitigation dans l'AMDEC pour qu'elles soient claires et non-ambiguës.</td>
+                                    <td class="px-6 py-4">Vous êtes le garant de la précision technique et de l'exactitude des termes employés.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-amber-400">Morph</td>
+                                    <td class="px-6 py-4">Transforme le tableau AMDEC (souvent dense) en une "carte des risques" visuelle, montrant la criticité de chaque point.</td>
+                                    <td class="px-6 py-4">Vous utilisez cette carte pour communiquer les enjeux principaux au Bureau d'Études et orienter les priorités de conception.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // JavaScript for tab functionality
+        function openTab(event, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            const tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tab-button" and remove the "tab-active" class
+            const tabbuttons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" tab-active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " tab-active";
+        }
+    </script>
+
+</body>
+</html>

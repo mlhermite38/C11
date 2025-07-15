@@ -174,6 +174,16 @@
             font-weight: 600;
             font-size: 0.8rem;
             transition: background-color 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        .tab-btn:hover {
+            background-color: #f3f4f6;
         }
         .tab-btn.active {
             background-color: #2563eb;
@@ -226,12 +236,30 @@
             <div class="mt-4">
                 <h3 class="text-lg font-bold sans-serif mb-3">Demonstration: Applying DREAMS to This Memorandum</h3>
                 <div class="live-demo-tabs">
-                    <button class="tab-btn active" onclick="openTab(event, 'DivergeDemo')">Diverge</button>
-                    <button class="tab-btn" onclick="openTab(event, 'ReviewDemo')">Review</button>
-                    <button class="tab-btn" onclick="openTab(event, 'AnalyzeDemo')">Analyze</button>
-                    <button class="tab-btn" onclick="openTab(event, 'EditDemo')">Edit</button>
-                    <button class="tab-btn" onclick="openTab(event, 'MorphDemo')">Morph</button>
-                    <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">Search</button>
+                    <button class="tab-btn active" onclick="openTab(event, 'DivergeDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Diverge
+                    </button>
+                    <button class="tab-btn" onclick="openTab(event, 'ReviewDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.432 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        Review
+                    </button>
+                    <button class="tab-btn" onclick="openTab(event, 'EditDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 19.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>
+                        Edit
+                    </button>
+                    <button class="tab-btn" onclick="openTab(event, 'AnalyzeDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+                        Analyze
+                    </button>
+                    <button class="tab-btn" onclick="openTab(event, 'MorphDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.673-.11 3.955-.329a9.008 9.008 0 00-7.91 0c1.282.219 2.599.329 3.955.329zM12 3a9.004 9.004 0 00-8.716 6.747M12 3a9.004 9.004 0 018.716 6.747M12 3c-1.356 0-2.673.11-3.955.329a9.008 9.008 0 007.91 0A9.004 9.004 0 0012 3z" /></svg>
+                        Morph
+                    </button>
+                    <button class="tab-btn" onclick="openTab(event, 'SearchDemo')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.673-.11 3.955-.329a9.008 9.008 0 00-7.91 0c1.282.219 2.599.329 3.955.329zM3 9.75a8.962 8.962 0 0118 0M3 9.75c0-1.355.268-2.65.744-3.857m16.512 0c.476 1.207.744 2.502.744 3.857m-1.212-12.024a1.212 1.212 0 00-1.212-.476m-1.212 12.024c.476-1.212.744-2.502.744-3.857s-.268-2.65-.744-3.857m-16.512 0c-.476 1.207-.744 2.502-.744 3.857s.268 2.65.744 3.857m1.212-12.024c-.476 1.212-.744 2.502-.744 3.857s.268 2.65.744 3.857" /></svg>
+                        Search
+                    </button>
                 </div>
                 <div id="DivergeDemo" class="tab-content active">
                     <p>"Here are 5 alternative formats for this information: 1. A Socratic dialogue between a 'Skeptic' and an 'Innovator'. 2. A 10-post social media thread. 3. A comic strip illustrating the human-robot collaboration. 4. An interactive 'choose your own adventure' story. 5. A canvas template for planning an AI-assisted project."</p>
@@ -241,13 +269,13 @@
                     <p>"This document scores 8/10 on clarity but 6/10 on emotional engagement. The term 'synergize' is corporate jargon; consider 'combine' or 'join forces'. I suggest a stronger call to action in the conclusion."</p>
                     <p class="human-role">Human's Role: To accept, reject, or modify these stylistic suggestions based on strategic intent.</p>
                 </div>
-                <div id="AnalyzeDemo" class="tab-content">
-                    <p>"Analyzing this memo's text, I've identified that the key concepts are 'Strategic Orchestrator', 'DREAMS framework', and 'Human-AI Partnership'. The sentiment is consistently positive. The reading level is appropriate for an executive audience."</p>
-                     <p class="human-role">Human's Role: To use these analytical insights to confirm the document is on track or to guide revisions.</p>
-                </div>
                 <div id="EditDemo" class="tab-content">
                     <p>"The subject 'Framework for...' is accurate but dry. Here are 5 more engaging alternatives: 1. Our New Innovation Playbook: Humans + AI. 2. The Answer to Your AI Question. 3. A Practical Guide to Leading with AI. 4. Re: AI & DT Conference - A Path Forward. 5. My Proposal for Supercharging Innovation."</p>
                     <p class="human-role">Human's Role: To choose the title that best fits the company culture and relationship with the CEO.</p>
+                </div>
+                <div id="AnalyzeDemo" class="tab-content">
+                    <p>"Analyzing this memo's text, I've identified that the key concepts are 'Strategic Orchestrator', 'DREAMS framework', and 'Human-AI Partnership'. The sentiment is consistently positive. The reading level is appropriate for an executive audience."</p>
+                     <p class="human-role">Human's Role: To use these analytical insights to confirm the document is on track or to guide revisions.</p>
                 </div>
                 <div id="MorphDemo" class="tab-content">
                     <p>"I have morphed this memo into a 5-slide presentation outline: Slide 1: The Big Question. Slide 2: The New Model: Human-Led, AI-Powered. Slide 3: The Framework in Action (interactive fresco). Slide 4: A Live Demo (this section). Slide 5: Our Next Move."</p>
@@ -277,13 +305,13 @@
         };
 
         const processData = {
-            "UNDERSTAND": { human: 'Define the strategic "why." Frame the problem within the business context.', ai: { "Diverge": "Generate a list of 100+ related topics.", "Review": "Summarize key market reports.", "Analyze": "Analyze structured data to find patterns.", "Edit": "Refine initial research questions.", "Morph": "Reframe the problem for different stakeholders.", "Search": "Conduct real-time competitor intelligence." }},
-            "EMPATHIZE": { human: "Discern unstated needs. Understand the cultural and emotional landscape.", ai: { "Diverge": "Create data-driven user personas.", "Review": "Present transcripts for human interpretation.", "Analyze": "Analyze interview transcripts for sentiment.", "Edit": "Draft a detailed empathy map.", "Morph": "Generate 'a day in the life of' narratives.", "Search": "Find relevant user interview case studies." }},
-            "DEFINE": { human: "Synthesize insights. Craft a compelling and inspiring problem statement.", ai: { "Diverge": "Generate 50+ 'How Might We...' statements.", "Review": "Score statements against impact/feasibility.", "Analyze": "Analyze statements for thematic clusters.", "Edit": "Consolidate top statements into one.", "Morph": "Translate statement into a 'User Story'.", "Search": "Benchmark against tech leaders' framing." }},
-            "IDEATE": { human: "Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.", ai: { "Diverge": "Generate hundreds of ideas.", "Review": "Cluster ideas into affinity groups.", "Analyze": "Analyze ideas against predefined constraints.", "Edit": "Flesh out top 5 ideas with pros/cons.", "Morph": "Combine two distinct ideas into a hybrid.", "Search": "Find analogous solutions in other industries." }},
-            "PROTOTYPE": { human: "Design the narrative. Make critical judgment calls on the content.", ai: { "Diverge": "Generate multiple UI layouts.", "Review": "Check text for clarity and tone.", "Analyze": "Analyze user interaction data from a prototype.", "Edit": "Draft first-pass copy from bullet points.", "Morph": "Turn a report into a 2-minute video script.", "Search": "Find best-practice templates." }},
-            "TEST": { human: "Listen with empathy. Ask 'why' to uncover deep insights.", ai: { "Diverge": "Create a comprehensive feedback survey.", "Review": "Analyze test session transcripts for themes.", "Analyze": "Calculate NPS from survey results.", "Edit": "Draft a concise summary of feedback.", "Morph": "Create a 'before and after' comparison.", "Search": "Benchmark feedback against common critiques." }},
-            "IMPLEMENT": { human: "Champion the change. Develop the strategic deployment plan.", ai: { "Diverge": "Brainstorm potential risks and mitigations.", "Review": "Analyze the project plan for bottlenecks.", "Analyze": "Analyze post-launch KPIs for correlations.", "Edit": "Draft launch communications and FAQs.", "Morph": "Adapt the framework into a training module.", "Search": "Set up a system to monitor channels." }}
+            "UNDERSTAND": { human: 'Define the strategic "why." Frame the problem within the business context.', ai: { "Diverge": "Generate a list of 100+ related topics.", "Review": "Summarize key market reports.", "Edit": "Refine initial research questions.", "Analyze": "Analyze structured data to find patterns.", "Morph": "Reframe the problem for different stakeholders.", "Search": "Conduct real-time competitor intelligence." }},
+            "EMPATHIZE": { human: "Discern unstated needs. Understand the cultural and emotional landscape.", ai: { "Diverge": "Create data-driven user personas.", "Review": "Present transcripts for human interpretation.", "Edit": "Draft a detailed empathy map.", "Analyze": "Analyze interview transcripts for sentiment.", "Morph": "Generate 'a day in the life of' narratives.", "Search": "Find relevant user interview case studies." }},
+            "DEFINE": { human: "Synthesize insights. Craft a compelling and inspiring problem statement.", ai: { "Diverge": "Generate 50+ 'How Might We...' statements.", "Review": "Score statements against impact/feasibility.", "Edit": "Consolidate top statements into one.", "Analyze": "Analyze statements for thematic clusters.", "Morph": "Translate statement into a 'User Story'.", "Search": "Benchmark against tech leaders' framing." }},
+            "IDEATE": { human: "Use lateral thinking. Challenge and combine the AI's ideas into novel concepts.", ai: { "Diverge": "Generate hundreds of ideas.", "Review": "Cluster ideas into affinity groups.", "Edit": "Flesh out top 5 ideas with pros/cons.", "Analyze": "Analyze ideas against predefined constraints.", "Morph": "Combine two distinct ideas into a hybrid.", "Search": "Find analogous solutions in other industries." }},
+            "PROTOTYPE": { human: "Design the narrative. Make critical judgment calls on the content.", ai: { "Diverge": "Generate multiple UI layouts.", "Review": "Check text for clarity and tone.", "Edit": "Draft first-pass copy from bullet points.", "Analyze": "Analyze user interaction data from a prototype.", "Morph": "Turn a report into a 2-minute video script.", "Search": "Find best-practice templates." }},
+            "TEST": { human: "Listen with empathy. Ask 'why' to uncover deep insights.", ai: { "Diverge": "Create a comprehensive feedback survey.", "Review": "Analyze test session transcripts for themes.", "Edit": "Draft a concise summary of feedback.", "Analyze": "Calculate NPS from survey results.", "Morph": "Create a 'before and after' comparison.", "Search": "Benchmark feedback against common critiques." }},
+            "IMPLEMENT": { human: "Champion the change. Develop the strategic deployment plan.", ai: { "Diverge": "Brainstorm potential risks and mitigations.", "Review": "Analyze the project plan for bottlenecks.", "Edit": "Draft launch communications and FAQs.", "Analyze": "Analyze post-launch KPIs for correlations.", "Morph": "Adapt the framework into a training module.", "Search": "Set up a system to monitor channels." }}
         };
 
         const timelineContainer = document.getElementById('timeline');
@@ -313,11 +341,14 @@
             setTimeout(() => {
                 humanRoleText.textContent = data.human;
                 aiRoleList.innerHTML = '';
-                Object.entries(data.ai).forEach(([dream, description]) => {
-                    const listItem = document.createElement('li');
-                    listItem.className = 'dreams-item';
-                    listItem.innerHTML = `<strong>${dream}:</strong> ${description}`;
-                    aiRoleList.appendChild(listItem);
+                const dreamsOrder = ["Diverge", "Review", "Edit", "Analyze", "Morph", "Search"];
+                dreamsOrder.forEach(dream => {
+                    if (data.ai[dream]) {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'dreams-item';
+                        listItem.innerHTML = `<strong>${dream}:</strong> ${data.ai[dream]}`;
+                        aiRoleList.appendChild(listItem);
+                    }
                 });
                 humanRoleDisplay.classList.add('visible');
                 aiRoleDisplay.classList.add('visible');

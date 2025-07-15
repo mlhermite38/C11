@@ -447,8 +447,14 @@ Your first question to me should be about how we currently use technology in our
         });
 
         function openTab(evt, tabName) {
-            // This function is for the live demo tabs, which are not in this version.
-            // Kept for potential future use, but can be removed.
+            const tabcontent = document.querySelectorAll(".tab-content");
+            tabcontent.forEach(tab => tab.style.display = "none");
+            
+            const tablinks = document.querySelectorAll(".tab-btn");
+            tablinks.forEach(link => link.classList.remove("active"));
+            
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
         }
 
         document.getElementById('copy-btn').addEventListener('click', function(e) {
